@@ -8,8 +8,14 @@ namespace Portfolio.Data
 {
     public interface IBlogRepository
     {
+
+        // get all the blogs
         IQueryable<Blog> getBlogs();
 
-        void Save();
+        // get blog by blog id
+        Blog getBlogById(int blogId);
+
+        // Save changes
+        bool Save();
     }
 }
