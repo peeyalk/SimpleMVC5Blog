@@ -186,7 +186,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Data\Blog.cs" />
@@ -284,7 +284,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blogs\Create.cshtml" />
+    <Content Include="Views\Blogs\Delete.cshtml" />
+    <Content Include="Views\Blogs\Details.cshtml" />
+    <Content Include="Views\Blogs\Edit.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

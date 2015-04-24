@@ -54,9 +54,9 @@ namespace Portfolio
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "863271050400445",
+               appSecret: "4df891fb516d1ccc28a0538d030cda8e");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
