@@ -1,0 +1,36 @@
+﻿@model Portfolio.Data.Blog
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.H1 = @Model.Title;
+    ViewBag.Span = String.Format("Posted by Long Nguyen on {0}", @Model.Created);
+}
+
+<style>
+    .intro-header {
+        background-image: url("../../Content/Template/img/about-bg.jpg");
+    }
+</style>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>@Model.Body</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr />
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    <br />
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+}
+<br />
+
+@Html.ActionLink("Back to List", "Index")

@@ -43,7 +43,7 @@
                         @Html.ActionLink("About Me", "Index", "Home")
                     </li>
                     <li>
-                        @Html.ActionLink("My Blog", "Index", "Blog")
+                        @Html.ActionLink("My Blog", "Index", "Blogs")
                     </li>
                     <li>
                         @Html.ActionLink("Contact Me", "Contact", "Home")
@@ -61,9 +61,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>@ViewBag.H1</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="meta">@ViewBag.Span</span>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; My Blog @DateTime.Now.Year</p>
+                    <p class="copyright text-muted">Copyright &copy; Long Nguyen @DateTime.Now.Year</p>
                 </div>
             </div>
         </div>
@@ -117,9 +117,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Scripts/bootstrap.min.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="~/Scripts/clean-blog.min.js"></script>
-
-
+    @*<script src="~/Scripts/clean-blog.js"></script>*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

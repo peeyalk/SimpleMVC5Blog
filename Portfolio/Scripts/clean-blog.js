@@ -473,39 +473,39 @@ $('#name').focus(function() {
             )
           );
 
-          // =============================================================
-          //                                                    VALIDATION
-          // =============================================================
+          //// =============================================================
+          ////                                                    VALIDATION
+          //// =============================================================
 
-          $this.bind(
-            "validation.validation",
-            function (event, params) {
+          //$this.bind(
+          //  "validation.validation",
+          //  function (event, params) {
 
-              var value = getValue($this);
+          //    var value = getValue($this);
 
-              // Get a list of the errors to apply
-              var errorsFound = [];
+          //    // Get a list of the errors to apply
+          //    var errorsFound = [];
 
-              $.each(validators, function (validatorType, validatorTypeArray) {
-                if (value || value.length || (params && params.includeEmpty) || (!!settings.validatorTypes[validatorType].blockSubmit && params && !!params.submitting)) {
-                  $.each(validatorTypeArray, function (i, validator) {
-                    if (settings.validatorTypes[validatorType].validate($this, value, validator)) {
-                      errorsFound.push(validator.message);
-                    }
-                  });
-                }
-              });
+          //    $.each(validators, function (validatorType, validatorTypeArray) {
+          //      if (value || value.length || (params && params.includeEmpty) || (!!settings.validatorTypes[validatorType].blockSubmit && params && !!params.submitting)) {
+          //        $.each(validatorTypeArray, function (i, validator) {
+          //          if (settings.validatorTypes[validatorType].validate($this, value, validator)) {
+          //            errorsFound.push(validator.message);
+          //          }
+          //        });
+          //      }
+          //    });
 
-              return errorsFound;
-            }
-          );
+          //    return errorsFound;
+          //  }
+          //);
 
-          $this.bind(
-            "getValidators.validation",
-            function () {
-              return validators;
-            }
-          );
+          //$this.bind(
+          //  "getValidators.validation",
+          //  function () {
+          //    return validators;
+          //  }
+          //);
 
           // =============================================================
           //                                             WATCH FOR CHANGES
