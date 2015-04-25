@@ -9,23 +9,15 @@ Bootstrap template used in this project is called "Clean Blog" from startbootstr
 
 Link to the template: http://startbootstrap.com/template-overviews/clean-blog/
 
+UPDATED (4/25/15):
+* Implemented Tiny MCE text editor to Create action in ```BlogsController.cs```
+* Dependency injection on ```BLogsController.cs``` and db context class.
+* Added some CRUD methods in ```BlogRepository.cs```.
 
 UPDATED (4/24/15):
 
--Fixed summiting form issues by disabled the validation that came with the template.
-
--Added view model for contact form.
-
--Each view now has its own image for the into header.
-
--Disabled register routes.
-
--User and admin role will be created in the seed method of configuration.cs class in Migrations folder.
-
-TODO:
-
--Dependency injection in blogs controller.
-
--Add more docs/comments to the code.
-
-and more...
+* Fixed summiting form issues by disabled the validation that came with the template.
+* Added view model for contact form.
+* Each view now has its own image for the into header.
+* Disabled register routes.
+* User and admin role will be created in the seed method of ```configuration.cs``` class in Migrations folder.
