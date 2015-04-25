@@ -22,7 +22,8 @@ namespace Portfolio.Migrations
             var UserManager = new UserManager<ApplicationUser>(userStore);
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            // Check to see if a user exists        
+            // Check to see if a user exists  
+            // You can change admin's username and password below
             if (!(context.Users.Any(u => u.UserName == "MainTest@yahoo.com")))
             {
                 var user = new ApplicationUser { UserName = "MainTest@yahoo.com" };

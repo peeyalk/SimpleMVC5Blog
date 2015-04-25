@@ -13,9 +13,19 @@ namespace Portfolio.Data
         IQueryable<Blog> getBlogs();
 
         // get blog by blog id
-        Blog getBlogById(int blogId);
+        Blog getBlogById(int Id);
+
+        // add a blog
+        bool AddBlog(Blog blog);
 
         // Save changes
         bool Save();
+
+        // Edit changes
+        bool Edit(Blog blog);
+
+        // Delete a blog
+        bool Delete(Blog blog); 
+
     }
 }

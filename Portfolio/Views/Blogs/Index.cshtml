@@ -31,7 +31,7 @@
                             @item.Title
                         </h2>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Long Nguyen</a> @item.Created</p>
+                    <p class="post-meta">Posted by @Html.ActionLink("Long Nguyen", "Index", "Home") on @item.Created.ToShortDateString()</p>
                 </div>
                 <hr>
         
@@ -49,38 +49,3 @@
 </ul>
 
 <hr>
-
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>*@

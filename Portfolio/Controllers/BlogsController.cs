@@ -14,13 +14,21 @@ namespace Portfolio.Controllers
     [Authorize(Roles="Admin")]
     public class BlogsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+
+        private IBlogRepository _db;
+
+        public BlogsController(IBlogRepository db)
+        {
+            _db = db;
+        }
 
         // GET: Blogs
         [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Blogs.ToList());
+            var blogs = _db.getBlogs();
+
+            return View(blogs);
         }
 
         // GET: Blogs/Details/5
@@ -31,7 +39,7 @@ namespace Portfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = _db.getBlogById((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -50,15 +58,15 @@ namespace Portfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body,Created")] Blog blog)
+        public ActionResult Create([Bind(Include = "Title,Body,Created")] Blog blog)
         {
             if (ModelState.IsValid)
             {
-                db.Blogs.Add(blog);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (_db.AddBlog(blog) && _db.Save())
+                {
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(blog);
         }
 
@@ -69,7 +77,7 @@ namespace Portfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = _db.getBlogById((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -82,13 +90,14 @@ namespace Portfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,Created")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Title,Body,Created")] Blog blog)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blog).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (_db.Edit(blog) && _db.Save())
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(blog);
         }
@@ -100,7 +109,7 @@ namespace Portfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = _db.getBlogById((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -113,19 +122,11 @@ namespace Portfolio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Blog blog = db.Blogs.Find(id);
-            db.Blogs.Remove(blog);
-            db.SaveChanges();
+            Blog blog = _db.getBlogById(id);
+            _db.Delete(blog);
+            _db.Save();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
