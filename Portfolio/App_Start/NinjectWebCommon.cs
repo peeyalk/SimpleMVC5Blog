@@ -11,6 +11,7 @@ namespace Portfolio.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Portfolio.Data;
+    using Portfolio.Services;
 
     public static class NinjectWebCommon 
     {
@@ -63,6 +64,7 @@ namespace Portfolio.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IBlogRepository>().To<BlogRepository>().InRequestScope();
+            kernel.Bind<IMailService>().To<MailService>().InRequestScope();
         }        
     }
 }

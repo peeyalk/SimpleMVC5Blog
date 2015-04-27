@@ -55,6 +55,25 @@ namespace Portfolio.Data
         }
 
         /// <summary>
+        /// Edit a blog
+        /// </summary>
+        /// <param name="blog"></param>
+        /// <returns>return true if successfully edited</returns>
+        public bool Edit(Blog blog)
+        {
+            try
+            {
+                _BlogContext.Entry(blog).State = EntityState.Modified;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        /// <summary>
         /// Save any changes to the blog.
         /// </summary>
         /// <returns>true if save successfuly</returns>
@@ -85,25 +104,6 @@ namespace Portfolio.Data
             {
                 return false;
             }
-        }
-
-        /// <summary>
-        /// Edit a blog
-        /// </summary>
-        /// <param name="blog"></param>
-        /// <returns>return true if successfully edited</returns>
-        public bool Edit(Blog blog)
-        {
-            try
-            {
-                _BlogContext.Entry(blog).State = EntityState.Modified;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            
         }
 
     }

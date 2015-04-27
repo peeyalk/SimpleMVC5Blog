@@ -24,9 +24,11 @@ namespace Portfolio.Migrations
 
             // Check to see if a user exists  
             // You can change admin's username and password below
+            // To change to your email, change MainTest@yahoo.com to your email
             if (!(context.Users.Any(u => u.UserName == "MainTest@yahoo.com")))
             {
                 var user = new ApplicationUser { UserName = "MainTest@yahoo.com" };
+                /// Change Password2 to something else if you want to change the password.
                 UserManager.Create(user, "Password2");
                 // Check to see if Role exists
                 if (!RoleManager.RoleExists("Admin"))

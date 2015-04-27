@@ -1,4 +1,5 @@
 ﻿using Portfolio.Models;
+using Portfolio.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,14 @@ namespace Portfolio.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IMailService _mailService;
+
+        public HomeController(IMailService mailService)
+        {
+            _mailService = mailService;
+        }
+
         /// <summary>
         /// Home page
         /// </summary>
@@ -28,9 +37,24 @@ namespace Portfolio.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Get information from contact forms
+        /// and send email using mail service.
+        /// </summary>
+        /// <param name="model">contact view model</param>
+        /// <returns>return to contact view</returns>
         [HttpPost]
         public ActionResult Contact(ContactViewModels model)
         {
+            var msg = String.Format("Contact from: {1}{0}Email: {2}{0}Comment: {3}",
+                Environment.NewLine,
+                model.Name,
+                model.Email,
+                model.Message
+            );
+
+            _mailService.SendMail(model.Email, "test@foo.com", "Contact from website", msg);
+
             return View();
         }
     }

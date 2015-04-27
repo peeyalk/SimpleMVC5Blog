@@ -4,8 +4,8 @@
     ViewBag.Title = "Index";
     ViewBag.Span = ("Personally, I rather look forward to a computer program winning the world chess championship. "
                    + "Humanity needs a lesson in humility.");
-    ViewBag.H1 = "Richard Dawkins";            
-    
+    ViewBag.H1 = "Richard Dawkins";
+
 }
 
 <style>
@@ -18,7 +18,7 @@
 {
     @Html.ActionLink("Create New", "Create")
 }
-  
+
 @foreach (var item in Model)
 {
     <!-- Main Content -->
@@ -34,11 +34,10 @@
                     <p class="post-meta">Posted by @Html.ActionLink("Long Nguyen", "Index", "Home") on @item.Created.ToShortDateString()</p>
                 </div>
                 <hr>
-        
+
             </div>
         </div>
     </div>
-
 }
 
 <!-- Pager -->
@@ -49,3 +48,6 @@
 </ul>
 
 <hr>
+
+
+

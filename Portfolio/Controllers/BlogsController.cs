@@ -90,7 +90,7 @@ namespace Portfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Title,Body,Created")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Id, Title,Body,Created")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -123,9 +123,11 @@ namespace Portfolio.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Blog blog = _db.getBlogById(id);
-            _db.Delete(blog);
-            _db.Save();
-            return RedirectToAction("Index");
+            if (_db.Delete(blog) && _db.Save())
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
     }
