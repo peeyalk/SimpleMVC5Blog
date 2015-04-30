@@ -8,10 +8,11 @@ All repo and entities classes will be in data folder, except for the view models
 Bootstrap template used in this project is called "Clean Blog" from startbootstrap.com
 Link to the template: http://startbootstrap.com/template-overviews/clean-blog/
 
+IMPORTANT: To be able to test create/edit/delete blog, you need to be logged in, go to this url "/Account/login".  Email of the admin role is "MainTest@yahoo.com", password is "Password2".
+
 WHERE AND HOW:
 * Please use your own Disqus scripts in "~/Scripts/Disqus/Disqus.js" for commenting system. (Disqus.js is included in `Details` view).
 * entity and repository classes will be in "~/Data" directory.
-* To be able to test create/edit/delete blog, you need to log in, go to this url "yourlocalhost/Account/login".  Email of the admin role is "MainTest@yahoo.com", password is "Password2".
 * To change admin's email and password, go to "~/Migrations/Configuration.cs", these options will be in the `Seed` method.
 * To change home page content, go to "~/Views/Home/Index.cshtml".
 * To change page master page content (navbar, footer, etc..), go to "~/Views/Shared/_Layout.cshtml".
