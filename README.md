@@ -1,21 +1,26 @@
 # SimpleMVC5Blog
 
-NOTE: this web app is still in development process, this is just a barebone.
+NOTE: this web app is just a simple one, CRUD operations implemented for blog contents (Make sure to log in at url "/Account/Login" first). Also I don't have a comment system because I think Disqus is better at this, so use Disqus instead.
 
 This is a simple blog/portfolio website using asp.net mvc 5 and Entity Framework as backend.
 All repo and entities classes will be in data folder, except for the view models.
 
 Bootstrap template used in this project is called "Clean Blog" from startbootstrap.com
-
 Link to the template: http://startbootstrap.com/template-overviews/clean-blog/
 
 WHERE AND HOW:
+* Please use your own Disqus scripts in "~/Scripts/Disqus/Disqus.js" for commenting system. (Disqus.js is included in `Details` view).
 * entity and repository classes will be in "~/Data" directory.
 * To be able to test create/edit/delete blog, you need to log in, go to this url "yourlocalhost/Account/login".  Email of the admin role is "MainTest@yahoo.com", password is "Password2".
 * To change admin's email and password, go to "~/Migrations/Configuration.cs", these options will be in the `Seed` method.
 * To change home page content, go to "~/Views/Home/Index.cshtml".
 * To change page master page content (navbar, footer, etc..), go to "~/Views/Shared/_Layout.cshtml".
 * If you know you want certain javascript files to be applied to all pages, add them to the master page. or else put them in ```@section scripts { //javascripts file here }``` in the page you want.
+
+UPDATED (4/29/15):
+* Blogs will be displayed by descending order (based on date created).
+* Pagination implemented.
+* Fixed email service for contact form.
 
 UPDATED (4/26/15):
 * Implemented email service for contact forms
