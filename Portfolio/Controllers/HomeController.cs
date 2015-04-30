@@ -53,7 +53,14 @@ namespace Portfolio.Controllers
                 model.Message
             );
 
-            _mailService.SendMail(model.Email, "test@foo.com", "Contact from website", msg);
+            if (_mailService.SendMail(model.Email, "conchutgidenho2290@gmail.com", "Contact from website", msg).Equals(""))
+            {
+                TempData["message"] = "Thanks for contacting me.";
+            }
+            else
+            {
+                TempData["message"] = "Something went wrong.";
+            }
 
             return View();
         }

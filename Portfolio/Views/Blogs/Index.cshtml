@@ -40,11 +40,19 @@
     </div>
 }
 
-<!-- Pager -->
 <ul class="pager">
-    <li class="next">
-        <a href="#">Older Posts &rarr;</a>
-    </li>
+    @if (ViewBag.CurrentPage > 0)
+    {
+        <li class="previous">
+            <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })">&larr; Newer Posts</a>
+        </li>
+    }
+    @if (ViewBag.CurrentPage < ViewBag.MaxPage)
+    {
+        <li class="next">
+            <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">Older Posts &rarr;</a>
+        </li>
+    }
 </ul>
 
 <hr>

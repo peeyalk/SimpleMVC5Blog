@@ -7,6 +7,6 @@ namespace Portfolio.Services
 {
     public interface IMailService
     {
-        void SendMail(string from, string to, string subject, string body);
+        string SendMail(string from, string to, string subject, string body);
     }
 }

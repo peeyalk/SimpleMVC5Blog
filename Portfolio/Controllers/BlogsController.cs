@@ -24,9 +24,18 @@ namespace Portfolio.Controllers
 
         // GET: Blogs
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(int page = 0)
         {
-            var blogs = _db.getBlogs();
+            var blogPerPage = 4;
+            var blogCount = _db.getBlogs().Count();
+
+            var blogs = _db.getBlogs().OrderByDescending(b => b.Created)
+                                      .Skip(blogPerPage * page)
+                                      .Take(blogPerPage)
+                                      .ToList();
+
+            ViewBag.MaxPage = (blogCount / blogPerPage) - (blogCount % blogPerPage == 0 ? 1 : 0);
+            ViewBag.CurrentPage = page;
 
             return View(blogs);
         }
