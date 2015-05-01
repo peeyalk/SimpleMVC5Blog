@@ -1,5 +1,7 @@
 # SimpleMVC5Blog
 
+[Live Preview] (http://long-nguyen.com/)
+
 NOTE: this web app is just a simple one, CRUD operations implemented for blog contents (Make sure to log in at url "/Account/Login" first). Also I don't have a comment system because I think Disqus is better at this, so use Disqus instead.
 
 This is a simple blog/portfolio website using asp.net mvc 5 and Entity Framework as backend.
