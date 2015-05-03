@@ -1,6 +1,6 @@
 # SimpleMVC5Blog
 
-[Live Preview] (http://long-nguyen.com/). I changed the admin's password and username for my own privacy, you can test CRUD operations on your local machine.
+[Live Preview] (http://simplemvcblog.long-nguyen.com/). I changed the admin's password and username for my own privacy, you can test CRUD operations on your local machine.
 
 NOTE: this web app is just a simple one. CRUD operations implemented for blog contents (Make sure to log in at url "/Account/Login" first). Also I don't have a comment system because I think Disqus is better at this, so use Disqus instead.
 
