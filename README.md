@@ -1,8 +1,8 @@
 # SimpleMVC5Blog
 
-[Live Preview] (http://long-nguyen.com/)
+[Live Preview] (http://long-nguyen.com/). I changed the admin's password and username for my own privacy, you can test CRUD operations on your local machine.
 
-NOTE: this web app is just a simple one, CRUD operations implemented for blog contents (Make sure to log in at url "/Account/Login" first). Also I don't have a comment system because I think Disqus is better at this, so use Disqus instead.
+NOTE: this web app is just a simple one. CRUD operations implemented for blog contents (Make sure to log in at url "/Account/Login" first). Also I don't have a comment system because I think Disqus is better at this, so use Disqus instead.
 
 This is a simple blog/portfolio website using asp.net mvc 5 and Entity Framework as backend.
 All repo and entities classes will be in data folder, except for the view models.
@@ -19,6 +19,10 @@ WHERE AND HOW:
 * To change home page content, go to "~/Views/Home/Index.cshtml".
 * To change page master page content (navbar, footer, etc..), go to "~/Views/Shared/_Layout.cshtml".
 * If you know you want certain javascript files to be applied to all pages, add them to the master page. or else put them in ```@section scripts { //javascripts file here }``` in the page you want.
+
+UPDATED (5/3/15):
+* Edit some issues with bootstrap
+* Make some changes to email service for contact form.
 
 UPDATED (4/29/15):
 * Blogs will be displayed by descending order (based on date created).
