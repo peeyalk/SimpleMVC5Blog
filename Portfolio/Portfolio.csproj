@@ -239,6 +239,7 @@
     <Content Include="Scripts\clean-blog.min.js.map">
       <DependentUpon>clean-blog.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\long-nguyen.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\clean-blog.js" />
     <Content Include="Scripts\clean-blog.min.js" />
@@ -411,7 +412,9 @@
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\tinymce\tinyMCEinit.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

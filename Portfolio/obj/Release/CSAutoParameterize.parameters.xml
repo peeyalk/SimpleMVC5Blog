@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=stem.arvixe.com;Initial Catalog=BlogDb;Integrated Security=false;User ID=ln206;Password=Anhvaem2202" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Long\\documents\\visual\ studio\ 2013\\Projects\\Portfolio\\Portfolio\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

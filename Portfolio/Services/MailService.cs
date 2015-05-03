@@ -23,14 +23,18 @@ namespace Portfolio.Services
                     var credential = new NetworkCredential
                     {
                         // Make sure to enter a valid email
-                        UserName = "youremail@gmail.com",
+                        UserName = "youremail@foo.com",
                         // And a valid password
-                        Password = "YourPassword"
+                        Password = "yourpassword"
                     };
+
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = false;
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587;
-                    smtp.EnableSsl = true;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
                     smtp.Send(msg);
                 }
             }
